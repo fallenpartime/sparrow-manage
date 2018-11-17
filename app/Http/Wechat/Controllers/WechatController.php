@@ -13,6 +13,6 @@ class WechatController extends Controller
 {
     public function index(Request $request)
     {
-        $request->request->all();
+        $request->getClientIp();
     }
 }

@@ -26,4 +26,21 @@ class CommonTool
         }
         return true;
     }
+
+    /**
+     * 合并数组
+     * @param array $params
+     * @param string $space
+     * @return array
+     */
+    public static function combineArray($params = [], $space = '=')
+    {
+        if (empty($params) || !is_array($params)) {
+            return [];
+        }
+        foreach ($params as $key => $item) {
+            $params[$key] = "{$key}{$space}{$item}";
+        }
+        return $params;
+    }
 }
