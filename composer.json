@@ -30,7 +30,8 @@
         "psr-4": {
             "App\\": "app/",
             "Frameworks\\": "frameworks/",
-            "Wechat\\": "wechat/"
+            "Wechat\\": "wechat/",
+            "Common\\": "common/"
         }
     },
     "autoload-dev": {

@@ -85,7 +85,7 @@ class CurlTool
      * @param bool $params
      * @return bool|mixed
      */
-    public function caCurl($url, $params = false)
+    public function curlByCA($url, $params = false)
     {
         $httpInfo = array();
         $ch = $this->initCurl($url, $params);

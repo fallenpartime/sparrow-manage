@@ -1566,16 +1566,16 @@
         },
         {
             "name": "overtrue/wechat",
-            "version": "4.1.10",
+            "version": "4.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/wechat.git",
-                "reference": "b1335864714322d3b497603dd6328cfd3c71e84c"
+                "reference": "ba4be8578246c9091d7ad883834c5fa84ce335d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/wechat/zipball/b1335864714322d3b497603dd6328cfd3c71e84c",
-                "reference": "b1335864714322d3b497603dd6328cfd3c71e84c",
+                "url": "https://api.github.com/repos/overtrue/wechat/zipball/ba4be8578246c9091d7ad883834c5fa84ce335d6",
+                "reference": "ba4be8578246c9091d7ad883834c5fa84ce335d6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1631,7 +1631,7 @@
                 "weixin",
                 "weixin-sdk"
             ],
-            "time": "2018-11-05T02:05:56+00:00"
+            "time": "2018-11-17T06:43:48+00:00"
         },
         {
             "name": "paragonie/random_compat",
