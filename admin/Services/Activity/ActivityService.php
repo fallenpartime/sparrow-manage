@@ -9,10 +9,13 @@ namespace Admin\Services\Activity;
 use Common\Config\ActivityConfig;
 use Common\Models\Activity\Activity;
 use Frameworks\Tool\Random\HashTool;
+use Frameworks\Traits\DefaultCacheTrait;
 use Illuminate\Support\Facades\Redis;
 
 class ActivityService
 {
+    use DefaultCacheTrait;
+
     protected $id = 0;
     protected $hashTool = null;
 
@@ -59,7 +62,7 @@ class ActivityService
             return [];
         }
         $cacheKeyword = $this->cacheKeyword($id);
-        return Redis::hgetall($cacheKeyword);
+        return $this->getRedis()->hgetall($cacheKeyword);
     }
 
     /**
@@ -74,7 +77,7 @@ class ActivityService
             return false;
         }
         $cacheKeyword = $this->cacheKeyword($id);
-        return Redis::hmset($cacheKeyword, $data);
+        return $this->getCacheRecord()->hmset($cacheKeyword, $data);
     }
 
     /**
@@ -88,7 +91,7 @@ class ActivityService
             return false;
         }
         $cacheKeyword = $this->cacheKeyword($id);
-        return Redis::del($cacheKeyword);
+        return $this->getRedis()->remove($cacheKeyword);
     }
 
     /**
@@ -103,7 +106,7 @@ class ActivityService
         $result = Activity::find($id)->increment('read_count');
         if ($result) {
             $cacheKeyword = $this->cacheKeyword($id);
-            Redis::hincrby($cacheKeyword, 'read_count', 1);
+            $this->getRedis()->hincrby($cacheKeyword, 'read_count', 1);
         }
         return true;
     }
@@ -118,7 +121,7 @@ class ActivityService
             return false;
         }
         $cacheKeyword = $this->cacheKeyword($id);
-        return Redis::hincrby($cacheKeyword, 'like_count', 1);
+        return $this->getRedis()->hincrby($cacheKeyword, 'like_count', 1);
     }
 
     public function getRecord($id = 0, $isPreview = false)

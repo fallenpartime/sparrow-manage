@@ -8,6 +8,7 @@ namespace App\Http\Wechat\Controllers;
 
 use Frameworks\Controller\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class WechatController extends Controller
 {
