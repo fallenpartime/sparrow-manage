@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Activity\Poll\Question;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Activity\ActivityQuestion;
+use Admin\Action\BaseAction;
+use Common\Models\Activity\ActivityQuestion;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\Activity\Poll\QuestionSqlProcessor;
 

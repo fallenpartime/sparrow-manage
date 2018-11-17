@@ -6,8 +6,8 @@
  */
 namespace App\Http\Front\Actions\Interact\Admonition;
 
-use Admin\Models\User\UserAdmonition;
-use Front\Actions\BaseAction;
+use Common\Models\User\UserAdmonition;
+use Front\Action\BaseAction;
 use Wechat\Traits\WechatDefaultOauthTrait;
 
 class IndexAction extends BaseAction

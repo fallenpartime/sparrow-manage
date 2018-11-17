@@ -6,14 +6,14 @@
  */
 namespace App\Http\Admin\Actions\Activity\Operate;
 
-use Admin\Actions\BaseAction;
-use Admin\Config\ActivityConfig;
-use Admin\Models\Activity\Activity;
+use Admin\Action\BaseAction;
+use Common\Config\ActivityConfig;
+use Common\Models\Activity\Activity;
 use Admin\Services\Activity\ActivityService;
 use Admin\Services\Activity\Processor\ActivityProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 use Illuminate\Support\Facades\Redis;
 
 class OpenAction extends BaseAction

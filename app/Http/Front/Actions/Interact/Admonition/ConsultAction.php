@@ -7,8 +7,8 @@
 namespace App\Http\Front\Actions\Interact\Admonition;
 
 use Admin\Services\User\Processor\UserAdmonitionProcessor;
-use Admin\Traits\ApiActionTrait;
-use Front\Actions\BaseAction;
+use Frameworks\Traits\ApiActionTrait;
+use Front\Action\BaseAction;
 use Wechat\Traits\WechatDefaultOauthTrait;
 
 class ConsultAction extends BaseAction

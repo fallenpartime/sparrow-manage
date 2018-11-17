@@ -6,9 +6,9 @@
  */
 namespace App\Http\Admin\Actions\Upload;
 
-use Admin\Actions\BaseAction;
-use Admin\Component\Upload\Processor\UploadProcessor;
-use Admin\Traits\ApiActionTrait;
+use Admin\Action\BaseAction;
+use Frameworks\Component\Upload\Processor\UploadProcessor;
+use Frameworks\Traits\ApiActionTrait;
 
 class UploadAction extends BaseAction
 {

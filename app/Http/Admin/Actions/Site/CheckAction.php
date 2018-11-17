@@ -6,7 +6,7 @@
  */
 namespace App\Http\Admin\Actions\Site;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 
 class CheckAction extends BaseAction
 {

@@ -6,9 +6,9 @@
  */
 namespace App\Http\Admin\Actions\Master;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Config\AdminConfig;
-use Admin\Models\System\AdminUserInfo;
+use Common\Models\System\AdminUserInfo;
 
 class IndexAction extends BaseAction
 {

@@ -6,9 +6,9 @@
  */
 namespace App\Http\Front\Actions\School\School;
 
-use Admin\Models\School\School;
-use Admin\Traits\ApiActionTrait;
-use Front\Actions\BaseAction;
+use Common\Models\School\School;
+use Frameworks\Traits\ApiActionTrait;
+use Front\Action\BaseAction;
 
 class IndexAction extends BaseAction
 {

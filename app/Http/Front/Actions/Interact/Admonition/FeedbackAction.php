@@ -6,7 +6,7 @@
  */
 namespace App\Http\Front\Actions\Interact\Admonition;
 
-use Front\Actions\BaseAction;
+use Front\Action\BaseAction;
 
 class FeedbackAction extends BaseAction
 {

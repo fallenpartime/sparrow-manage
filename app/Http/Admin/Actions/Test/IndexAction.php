@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Test;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Article\Article;
+use Admin\Action\BaseAction;
+use Common\Models\Article\Article;
 use Frameworks\Tool\Random\HashTool;
 use Illuminate\Support\Facades\Redis;
 use Vinkla\Hashids\Facades\Hashids;

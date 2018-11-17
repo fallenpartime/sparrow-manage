@@ -6,9 +6,9 @@
  */
 namespace App\Http\Admin\Actions\Article\Exam;
 
-use Admin\Models\Article\Article;
+use Common\Models\Article\Article;
 use App\Http\Admin\Actions\Article\BaseInfoAction;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class InfoAction extends BaseInfoAction
 {

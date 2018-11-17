@@ -32,6 +32,7 @@
             "Frameworks\\": "frameworks/",
             "Wechat\\": "wechat/",
             "Admin\\": "admin/",
+            "front\\": "Front/",
             "Common\\": "common/"
         }
     },

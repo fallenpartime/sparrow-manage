@@ -6,7 +6,7 @@
  */
 namespace App\Http\Admin\Actions\System;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Config\AdminConfig;
 use Admin\Services\Authority\Processor\AdminUserRoleProcessor;
 

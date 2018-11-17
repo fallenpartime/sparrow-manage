@@ -6,7 +6,7 @@
  */
 namespace App\Http\Wechat\Actions\Oauth;
 
-use Wechat\Actions\BaseAction;
+use Wechat\Action\BaseAction;
 
 class RedirectAction extends BaseAction
 {

@@ -6,7 +6,7 @@
  */
 namespace App\Http\Front\Actions\Activity\Vote;
 
-use Front\Actions\BaseAction;
+use Front\Action\BaseAction;
 use Front\Traits\ActivityActionTrait;
 use Front\Traits\ErrorActionTrait;
 

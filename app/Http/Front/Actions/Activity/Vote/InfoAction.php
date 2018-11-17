@@ -6,11 +6,11 @@
  */
 namespace App\Http\Front\Actions\Activity\Vote;
 
-use Admin\Config\ActivityConfig;
-use Admin\Models\Activity\ActivityQuestion;
+use Common\Config\ActivityConfig;
+use Common\Models\Activity\ActivityQuestion;
 use Admin\Services\Activity\Processor\ActivityVoteProcessor;
-use Admin\Traits\ApiActionTrait;
-use Front\Actions\BaseAction;
+use Frameworks\Traits\ApiActionTrait;
+use Front\Action\BaseAction;
 use Front\Traits\ActivityActionTrait;
 use Front\Traits\ErrorActionTrait;
 use Illuminate\Support\Facades\Redis;

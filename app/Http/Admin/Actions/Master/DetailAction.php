@@ -6,14 +6,14 @@
  */
 namespace App\Http\Admin\Actions\Master;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\System\AdminUserInfo;
-use Admin\Models\System\AdminUserRole;
+use Admin\Action\BaseAction;
+use Common\Models\System\AdminUserInfo;
+use Common\Models\System\AdminUserRole;
 use Admin\Services\Authority\Processor\AdminUserInfoProcessor;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class DetailAction extends BaseAction
 {

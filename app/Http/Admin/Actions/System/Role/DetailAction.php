@@ -6,18 +6,18 @@
  */
 namespace App\Http\Admin\Actions\System\Role;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Config\AdminConfig;
-use Admin\Models\System\AdminUserGroup;
-use Admin\Models\System\AdminUserRole;
-use Admin\Models\System\AdminUserRoleAccess;
+use Common\Models\System\AdminUserGroup;
+use Common\Models\System\AdminUserRole;
+use Common\Models\System\AdminUserRoleAccess;
 use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Integration\RelateAuthoritiesCheckedIntegration;
 use Admin\Services\Authority\Processor\AdminUserRoleAccessProcessor;
 use Admin\Services\Authority\Processor\AdminUserRoleProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class DetailAction extends BaseAction
 {

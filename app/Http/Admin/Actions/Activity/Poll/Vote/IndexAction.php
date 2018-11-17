@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Activity\Poll\Vote;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Activity\ActivityVote;
+use Admin\Action\BaseAction;
+use Common\Models\Activity\ActivityVote;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\Activity\Poll\VoteSqlProcessor;
 

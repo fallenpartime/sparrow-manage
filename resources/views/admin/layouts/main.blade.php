@@ -1,5 +1,5 @@
 <?php
-    $menuList = \Admin\Base\AdminMenuService::initMenuInfo(
+    $menuList = \Admin\Services\Menu\AdminMenuService::initMenuInfo(
             \Admin\Config\AdminMenuConfig::menuList(),
             \Admin\Config\AdminMenuConfig::children(),
             $admin_info['is_manager'],

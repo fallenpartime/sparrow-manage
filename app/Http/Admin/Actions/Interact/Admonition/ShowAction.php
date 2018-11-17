@@ -6,12 +6,12 @@
  */
 namespace App\Http\Admin\Actions\Interact\Admonition;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\User\UserAdmonition;
+use Admin\Action\BaseAction;
+use Common\Models\User\UserAdmonition;
 use Admin\Services\Log\LogService;
 use Admin\Services\User\Processor\UserAdmonitionProcessor;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class ShowAction extends BaseAction
 {

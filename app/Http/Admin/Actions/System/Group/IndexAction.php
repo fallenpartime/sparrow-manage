@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\System\Group;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\System\AdminUserGroup;
+use Admin\Action\BaseAction;
+use Common\Models\System\AdminUserGroup;
 
 class IndexAction extends BaseAction
 {

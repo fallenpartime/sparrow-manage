@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Activity\Poll;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Activity\Activity;
+use Admin\Action\BaseAction;
+use Common\Models\Activity\Activity;
 use Admin\Services\Activity\ActivityService;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\Activity\Poll\IndexSqlProcessor;

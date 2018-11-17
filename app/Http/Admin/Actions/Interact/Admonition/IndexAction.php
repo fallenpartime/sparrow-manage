@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Interact\Admonition;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\User\UserAdmonition;
+use Admin\Action\BaseAction;
+use Common\Models\User\UserAdmonition;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\User\Admonition\IndexSqlProcessor;
 

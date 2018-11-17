@@ -6,13 +6,13 @@
  */
 namespace App\Http\Admin\Actions\Article;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Services\Article\ArticleService;
 use Admin\Services\Article\Processor\ArticlePictureProcessor;
 use Admin\Services\Article\Processor\ArticleProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class BaseInfoAction extends BaseAction
 {

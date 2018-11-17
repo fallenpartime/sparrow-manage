@@ -6,7 +6,7 @@
  */
 namespace App\Http\Admin\Actions\System\Authority;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Services\Authority\AuthorityService;
 
 class IndexAction extends BaseAction

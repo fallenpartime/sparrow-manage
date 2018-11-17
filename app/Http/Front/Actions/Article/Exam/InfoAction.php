@@ -6,7 +6,7 @@
  */
 namespace App\Http\Front\Actions\Article\Exam;
 
-use Front\Actions\BaseAction;
+use Front\Action\BaseAction;
 use Front\Traits\ArticleActionTrait;
 use Front\Traits\ErrorActionTrait;
 

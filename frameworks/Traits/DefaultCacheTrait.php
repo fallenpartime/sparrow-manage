@@ -14,7 +14,7 @@ trait DefaultCacheTrait
 
     protected function getRedis()
     {
-        if (!isset($this->redisConnect)) {
+        if (isset($this->redisConnect)) {
             $this->redisConnect = new RedisTool();
         }
         return $this->redisConnect;

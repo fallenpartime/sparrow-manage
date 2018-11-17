@@ -6,15 +6,15 @@
  */
 namespace App\Http\Admin\Actions\Master;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\System\AdminUserInfo;
+use Admin\Action\BaseAction;
+use Common\Models\System\AdminUserInfo;
 use Admin\Services\Authority\AuthorityService;
 use Admin\Services\Authority\Integration\OwnerAuthoritiesIntegration;
 use Admin\Services\Authority\Integration\RelateAuthoritiesCheckedIntegration;
 use Admin\Services\Authority\Processor\AdminUserActionProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class AuthorityAction extends BaseAction
 {

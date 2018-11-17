@@ -6,10 +6,10 @@
  */
 namespace App\Http\Admin\Actions\School\School;
 
-use Admin\Actions\BaseAction;
-use Admin\Config\SchoolConfig;
-use Admin\Models\School\School;
-use Admin\Models\School\SchoolDistrict;
+use Admin\Action\BaseAction;
+use Common\Config\SchoolConfig;
+use Common\Models\School\School;
+use Common\Models\School\SchoolDistrict;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\School\SchoolSqlProcessor;
 

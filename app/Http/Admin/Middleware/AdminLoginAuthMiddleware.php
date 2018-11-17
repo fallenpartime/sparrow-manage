@@ -2,7 +2,7 @@
 
 namespace App\Http\Admin\Middleware;
 
-use Admin\Auth\AuthService;
+use Admin\Services\Auth\AuthService;
 use Closure;
 
 class AdminLoginAuthMiddleware

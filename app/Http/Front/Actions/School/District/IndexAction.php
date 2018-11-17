@@ -6,10 +6,10 @@
  */
 namespace App\Http\Front\Actions\School\District;
 
-use Admin\Models\School\School;
-use Admin\Traits\ApiActionTrait;
+use Common\Models\School\School;
+use Frameworks\Traits\ApiActionTrait;
 use Frameworks\Tool\Map\MapTool;
-use Front\Actions\BaseAction;
+use Front\Action\BaseAction;
 
 class IndexAction extends BaseAction
 {

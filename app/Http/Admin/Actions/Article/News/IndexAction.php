@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\Article\News;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Article\Article;
+use Admin\Action\BaseAction;
+use Common\Models\Article\Article;
 use Admin\Services\Article\ArticleService;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\Article\NewsSqlProcessor;

@@ -6,9 +6,9 @@
  */
 namespace App\Http\Admin\Actions\System\Log;
 
-use Admin\Actions\BaseAction;
+use Admin\Action\BaseAction;
 use Admin\Config\AdminConfig;
-use Admin\Models\System\AdminLog;
+use Common\Models\System\AdminLog;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Master\MasterService;
 use Admin\Services\Sql\System\Log\AdminLogSqlProcessor;

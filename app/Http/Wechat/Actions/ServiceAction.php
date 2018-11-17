@@ -6,7 +6,7 @@
  */
 namespace App\Http\Wechat\Actions;
 
-use Wechat\Actions\BaseAction;
+use Wechat\Action\BaseAction;
 
 class ServiceAction extends BaseAction
 {

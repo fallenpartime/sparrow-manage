@@ -6,12 +6,12 @@
  */
 namespace App\Http\Admin\Actions\Activity\Operate\Question;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Activity\ActivityQuestion;
+use Admin\Action\BaseAction;
+use Common\Models\Activity\ActivityQuestion;
 use Admin\Services\Activity\Processor\ActivityQuestionProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class RemoveAction extends BaseAction
 {

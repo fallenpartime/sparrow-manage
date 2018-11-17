@@ -6,14 +6,14 @@
  */
 namespace App\Http\Admin\Actions\Activity\Poll;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\Activity\Activity;
+use Admin\Action\BaseAction;
+use Common\Models\Activity\Activity;
 use Admin\Services\Activity\ActivityService;
 use Admin\Services\Activity\Processor\ActivityPictureProcessor;
 use Admin\Services\Activity\Processor\ActivityProcessor;
 use Admin\Services\Log\LogService;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class InfoAction extends BaseAction
 {

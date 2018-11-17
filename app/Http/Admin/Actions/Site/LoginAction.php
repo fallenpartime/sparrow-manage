@@ -6,9 +6,9 @@
  */
 namespace App\Http\Admin\Actions\Site;
 
-use Admin\Actions\BaseAction;
-use Admin\Auth\AuthService;
-use Admin\Models\System\AdminUserInfo;
+use Admin\Action\BaseAction;
+use Admin\Services\Auth\AuthService;
+use Common\Models\System\AdminUserInfo;
 use Admin\Services\Authority\Integration\OwnerAuthoritiesIntegration;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Admin\Services\Authority\Processor\AdminUserRoleAccessProcessor;

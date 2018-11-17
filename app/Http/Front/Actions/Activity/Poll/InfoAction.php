@@ -6,8 +6,8 @@
  */
 namespace App\Http\Front\Actions\Activity\Poll;
 
-use Admin\Config\ActivityConfig;
-use Front\Actions\BaseAction;
+use Common\Config\ActivityConfig;
+use Front\Action\BaseAction;
 use Front\Traits\ActivityActionTrait;
 use Front\Traits\ErrorActionTrait;
 use Illuminate\Support\Facades\Redis;

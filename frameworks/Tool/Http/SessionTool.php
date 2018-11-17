@@ -28,12 +28,12 @@ class SessionTool
 
     public function set($key, $value)
     {
-        $this->getSession()->set($key, $value);
+        $this->getSession()->put($key, $value);
     }
 
     public function remove($key)
     {
-        $this->getSession()->remove($key);
+        $this->getSession()->forget($key);
     }
 
     public function get($key)

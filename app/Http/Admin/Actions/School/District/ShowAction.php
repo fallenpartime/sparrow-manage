@@ -6,12 +6,12 @@
  */
 namespace App\Http\Admin\Actions\School\District;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\School\SchoolDistrict;
+use Admin\Action\BaseAction;
+use Common\Models\School\SchoolDistrict;
 use Admin\Services\Log\LogService;
 use Admin\Services\School\Processor\SchoolDistrictProcessor;
-use Admin\Traits\ApiActionTrait;
-use Frameworks\Tool\Http\HttpConfig;
+use Frameworks\Traits\ApiActionTrait;
+use Frameworks\Tool\Http\Config\HttpConfig;
 
 class ShowAction extends BaseAction
 {

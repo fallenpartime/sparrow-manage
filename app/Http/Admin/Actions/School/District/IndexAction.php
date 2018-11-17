@@ -6,8 +6,8 @@
  */
 namespace App\Http\Admin\Actions\School\District;
 
-use Admin\Actions\BaseAction;
-use Admin\Models\School\SchoolDistrict;
+use Admin\Action\BaseAction;
+use Common\Models\School\SchoolDistrict;
 use Admin\Services\Common\CommonService;
 use Admin\Services\Sql\School\SchoolDistrictSqlProcessor;
 

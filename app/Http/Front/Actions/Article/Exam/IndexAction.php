@@ -6,8 +6,8 @@
  */
 namespace App\Http\Front\Actions\Article\Exam;
 
-use Admin\Traits\ApiActionTrait;
-use Front\Actions\BaseAction;
+use Frameworks\Traits\ApiActionTrait;
+use Front\Action\BaseAction;
 use Front\Traits\Lists\ArticleActionTrait;
 
 class IndexAction extends BaseAction
