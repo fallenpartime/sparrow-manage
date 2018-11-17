@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('articlePracticeInfo', $ts_list)))
-                            <a href="{{ route('articlePracticeInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('articlePracticeInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('articlePracticeInfo', $menu)) style="color:#007aff;"@endif>社会实践记录配置</dd>

@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('articleTechingInfo', $ts_list)))
-                            <a href="{{ route('articleTechingInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('articleTechingInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('articleTechingInfo', $menu)) style="color:#007aff;"@endif>教研活动配置</dd>

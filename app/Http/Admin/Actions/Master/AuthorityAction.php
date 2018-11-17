@@ -29,7 +29,6 @@ class AuthorityAction extends BaseAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->_owner = AdminUserInfo::with(['user', 'role', 'userAction'])->find($id);
             if (!empty($this->_owner)) {
@@ -38,17 +37,13 @@ class AuthorityAction extends BaseAction
                 $this->_userAction = $this->_owner->userAction;
             }
         }
-        if ($workNo == 1 || $workNo == 2) {
-            if ($workNo == 1) {
-                if (empty($this->_owner)) {
-                    header('Location: '.route('owners'));
-                }
-                return $this->showInfo();
-            } else {
-                $this->process();
-            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        if (empty($this->_owner)) {
+            header('Location: '.route('owners'));
+        }
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -61,7 +56,7 @@ class AuthorityAction extends BaseAction
             'user'              =>  $this->_user,
             'authorities'       =>  $authorities,
             'menu'  =>  ['manageCenter', 'ownerManage', 'ownerAuthority'],
-            'actionUrl'         => route('ownerAuthority', ['work_no'=>2]),
+            'actionUrl'         => route('ownerAuthority'),
             'redirectUrl'       => route('owners'),
         ];
         return $this->createView('admin.system.owner.authority', $result);

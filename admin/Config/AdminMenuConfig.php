@@ -44,27 +44,27 @@ class AdminMenuConfig
             'articleCenter' =>  [
                 'newsManage'    =>  [
                     'news'              =>  route('news'),
-                    'articleNewsInfo'   =>  route('articleNewsInfo', ['work_no'=>1]),
+                    'articleNewsInfo'   =>  route('articleNewsInfo'),
                 ],
                 'examManage'    =>  [
                     'exams'             =>  route('exams'),
-                    'articleExamInfo'   =>  route('articleExamInfo', ['work_no'=>1]),
+                    'articleExamInfo'   =>  route('articleExamInfo'),
                 ],
                 'practiceManage'    =>  [
                     'practices'             =>  route('practices'),
-                    'articlePracticeInfo'   =>  route('articlePracticeInfo', ['work_no'=>1]),
+                    'articlePracticeInfo'   =>  route('articlePracticeInfo'),
                 ],
                 'techingManage'     =>  [
                     'techings'              =>  route('techings'),
-                    'articleTechingInfo'    =>  route('articleTechingInfo', ['work_no'=>1]),
+                    'articleTechingInfo'    =>  route('articleTechingInfo'),
                 ],
             ],
             'activityCenter'  =>  [
                 'pollManage'  =>  [
                     'polls'                 =>  route('polls'),
-                    'activityPollInfo'      =>  route('activityPollInfo', ['work_no'=>1]),
+                    'activityPollInfo'      =>  route('activityPollInfo'),
                     'activityPollQuestions'     =>  route('activityPollQuestions'),
-                    'activityPollQuestionInfo'  =>  route('activityPollQuestionInfo', ['work_no'=>1]),
+                    'activityPollQuestionInfo'  =>  route('activityPollQuestionInfo'),
                 ],
             ],
             'interactCenter'  =>  [
@@ -75,29 +75,29 @@ class AdminMenuConfig
             'schoolCenter'  =>  [
                 'schoolDistrictManage'  =>  [
                     'districts'     =>  route('districts'),
-                    'districtInfo'  =>  route('districtInfo', ['work_no'=>1])
+                    'districtInfo'  =>  route('districtInfo')
                 ],
                 'schoolManage'          =>  [
                     'schools'     =>  route('schools'),
-                    'schoolInfo'  =>  route('schoolInfo', ['work_no'=>1])
+                    'schoolInfo'  =>  route('schoolInfo')
                 ],
             ],
             'manageCenter'  =>  [
                 'ownerManage'   =>  [
                     'owners'            =>  route('owners'),
-                    'ownerInfo'         =>  route('ownerInfo', ['work_no'=>1])
+                    'ownerInfo'         =>  route('ownerInfo')
                 ],
                 'groupManage'   =>  [
                     'groups'            =>  route('groups'),
-                    'groupInfo'         =>  route('groupInfo', ['work_no'=>1])
+                    'groupInfo'         =>  route('groupInfo')
                 ],
                 'roleManage'   =>  [
                     'roles'             =>  route('roles'),
-                    'roleInfo'          =>  route('roleInfo', ['work_no'=>1])
+                    'roleInfo'          =>  route('roleInfo')
                 ],
                 'authorityManage'   =>  [
                     'authorities'       =>  route('authorities'),
-                    'authorityInfo'     =>  route('authorityInfo', ['work_no'=>1])
+                    'authorityInfo'     =>  route('authorityInfo')
                 ],
                 'logManage'     =>  [
                     'operateLogs'       =>  route('operateLogs'),

@@ -24,18 +24,13 @@ class DetailAction extends BaseAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->authority = (new AdminActionProcessor())->getSingleById($id);
         }
-        if ($workNo == 1 || $workNo == 2) {
-            if ($workNo == 1) {
-                return $this->showInfo();
-            } else {
-                $this->process();
-            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -48,7 +43,7 @@ class DetailAction extends BaseAction
             'first_menu'    => $firstId,
             'second_menu'   => $secondId,
             'menu'  =>  ['manageCenter', 'authorityManage', 'authorityInfo'],
-            'actionUrl'     => route('authorityInfo', ['work_no'=>2]),
+            'actionUrl'     => route('authorityInfo'),
             'redirectUrl'   => route('authorities'),
         ];
         return $this->createView('admin.system.authority.detail', $result);

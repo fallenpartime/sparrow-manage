@@ -35,7 +35,7 @@
                                         {{ $value->created_at }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('groupInfo', ['work_no' => 1, 'id' => $value->id]) }}" style="display: block;">编辑</a>
+                                        <a href="{{ route('groupInfo', ['id' => $value->id]) }}" style="display: block;">编辑</a>
                                     </td>
                                 </tr>
                                 @endforeach

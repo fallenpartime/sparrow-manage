@@ -72,8 +72,8 @@ class IndexAction extends BaseAction
                     'name'  =>  '',
                     'phone' =>  '',
                     'status_desc'   =>  $this->getStatusDescription($item),
-                    'edit_url'      =>  route('ownerInfo', ['work_no'=>1, 'id'=>$item->id]),
-                    'auth_url'      =>  route('ownerAuthority', ['work_no'=>1, 'id'=>$item->id]),
+                    'edit_url'      =>  route('ownerInfo', ['id'=>$item->id]),
+                    'auth_url'      =>  route('ownerAuthority', ['id'=>$item->id]),
                     'indexTag'      =>  '',
                     'created_at'    =>  $item->created_at,
                 ];

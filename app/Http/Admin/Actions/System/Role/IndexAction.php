@@ -37,7 +37,7 @@ class IndexAction extends BaseAction
                     'group_desc'    =>  [],
                     'group_ext'     =>  [],
                     'created_at'    =>  $item->created_at,
-                    'edit_url'      =>  route('roleInfo', ['work_no'=>1, 'id'=>$item->id]),
+                    'edit_url'      =>  route('roleInfo', ['id'=>$item->id]),
                 ];
                 $accesses = array_get($item, 'accesses');
                 if (!empty($accesses)) {

@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('schoolInfo', $ts_list)))
-                            <a href="{{ route('schoolInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('schoolInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('schoolInfo', $menu)) style="color:#007aff;"@endif>学校配置</dd>

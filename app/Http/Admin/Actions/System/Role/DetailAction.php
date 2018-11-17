@@ -29,21 +29,13 @@ class DetailAction extends BaseAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->_role = AdminUserRole::find($id);
         }
-        if ($workNo == 1 || $workNo == 2 || $workNo == 3) {
-            if ($workNo == 1) {
-                return $this->showInfo();
-            } else if($workNo == 2) {
-                $this->process();
-            }
-//            else {
-//                $this->showGroupAuthority();
-//            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -60,7 +52,7 @@ class DetailAction extends BaseAction
             'groupAuthorities'  =>  $groupMenus,
             'indexUrls'         => $indexUrls,
             'menu'  =>  ['manageCenter', 'roleManage', 'roleInfo'],
-            'actionUrl'         => route('roleInfo', ['work_no'=>2]),
+            'actionUrl'         => route('roleInfo'),
             'redirectUrl'       => route('roles'),
             'groupAuthorityUrl' => route('roleInfo', ['work_no'=>3]),
         ];

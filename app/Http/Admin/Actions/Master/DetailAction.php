@@ -26,21 +26,16 @@ class DetailAction extends BaseAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->_owner = AdminUserInfo::find($id);
             if (!empty($this->_owner)) {
                 $this->_user = $this->_owner->user;
             }
         }
-        if ($workNo == 1 || $workNo == 2) {
-            if ($workNo == 1) {
-                return $this->showInfo();
-            } else {
-                $this->process();
-            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -50,7 +45,7 @@ class DetailAction extends BaseAction
             'user'              =>  $this->_user,
             'roles'             =>  AdminUserRole::all(),
             'menu'  =>  ['manageCenter', 'ownerManage', 'ownerInfo'],
-            'actionUrl'         => route('ownerInfo', ['work_no'=>2]),
+            'actionUrl'         => route('ownerInfo'),
             'redirectUrl'       => route('owners'),
         ];
         return $this->createView('admin.system.owner.detail', $result);

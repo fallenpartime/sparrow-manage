@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('articleNewsInfo', $ts_list)))
-                            <a href="{{ route('articleNewsInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('articleNewsInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('articleNewsInfo', $menu)) style="color:#007aff;"@endif>教育资讯配置</dd>

@@ -72,7 +72,7 @@ class IndexAction extends BaseAction
         }
         if ($authService->isMaster || $authService->validateAction('activityPollQuestionInfo')) {
             $operateList['create_question'] = 1;
-            $operateUrl['question_url'] = route('activityPollQuestionInfo', ['work_no'=>1]);
+            $operateUrl['question_url'] = route('activityPollQuestionInfo');
         }
         if ($authService->isMaster || $authService->validateAction('activityFresh')) {
             $operateList['change_fresh'] = 1;
@@ -139,7 +139,7 @@ class IndexAction extends BaseAction
     {
         $service = new ActivityService();
         foreach ($list as $key => $item) {
-            $list[$key]->edit_url = route('activityPollInfo', ['work_no'=>1, 'id'=>$item->id]);
+            $list[$key]->edit_url = route('activityPollInfo', ['id'=>$item->id]);
             $list[$key]->show_url = $service->_init($item->id)->getPreviewShowUrl($item->type);
             $list = $this->getActivityOpenStatus($list, $key);
             $list = $this->listAllowOperate($list, $key);

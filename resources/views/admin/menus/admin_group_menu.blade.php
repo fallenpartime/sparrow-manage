@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('groupInfo', $ts_list)))
-                            <a href="{{ route('groupInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('groupInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('groupInfo', $menu)) style="color:#007aff;"@endif>分组配置</dd>

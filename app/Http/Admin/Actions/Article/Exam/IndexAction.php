@@ -107,7 +107,7 @@ class IndexAction extends BaseAction
     {
         $service = new ArticleService();
         foreach ($list as $key => $item) {
-            $list[$key]->edit_url = route('articleExamInfo', ['work_no'=>1, 'id'=>$item->id]);
+            $list[$key]->edit_url = route('articleExamInfo', ['id'=>$item->id]);
             $list[$key]->show_url = $service->_init($item->id)->getPreviewShowUrl($item->type);
             $list = $this->listAllowOperate($list, $key);
         }

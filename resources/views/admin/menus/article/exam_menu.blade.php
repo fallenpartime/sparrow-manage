@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('articleExamInfo', $ts_list)))
-                            <a href="{{ route('articleExamInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('articleExamInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('articleExamInfo', $menu)) style="color:#007aff;"@endif>中高考政策配置</dd>

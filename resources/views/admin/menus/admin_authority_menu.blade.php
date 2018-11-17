@@ -16,7 +16,7 @@
                         </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('authorityInfo', $ts_list)))
-                        <a href="{{ route('authorityInfo', ['work_no'=>1]) }}">
+                        <a href="{{ route('authorityInfo') }}">
                             <dl class="btn btn-lg btn-primary-outline">
                                 <dt><img src="/assets/images/manage.png"></dt>
                                 <dd @if(in_array('authorityInfo', $menu)) style="color:#007aff;"@endif>权限配置</dd>

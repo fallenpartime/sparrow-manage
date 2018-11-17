@@ -29,7 +29,7 @@ class RelateAuthoritiesIntegration extends BaseWorkProcessor
             $menuId = $menu->id;
             $menuType = $menu->type;
             if ($this->withUrl) {
-                $menu->edit_url = route('authorityInfo', ['work_no'=>1, 'id'=>$menuId]);
+                $menu->edit_url = route('authorityInfo', ['id'=>$menuId]);
             }
             if ($menuType == 1) {
                 $mainMenuList[$menuId] = ['menu'=>$menu, 'length'=>0, 'list'=>[]];

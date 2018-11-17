@@ -82,7 +82,7 @@ class IndexAction extends BaseAction
         $authService = $this->getAuthService();
         if ($authService->isMaster || $authService->validateAction('activityPollQuestionInfo')) {
             $operateList['allow_operate_edit'] = 1;
-            $list[$key]->edit_url = route('activityPollQuestionInfo', ['id'=>$list[$key]->id, 'work_no'=>1]);
+            $list[$key]->edit_url = route('activityPollQuestionInfo', ['id'=>$list[$key]->id]);
         }
         if ($authService->isMaster || $authService->validateAction('activityQuestionShow')) {
             $operateList['allow_operate_show'] = 1;

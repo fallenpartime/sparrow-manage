@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('activityPollInfo', $ts_list)))
-                            <a href="{{ route('activityPollInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('activityPollInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('activityPollInfo', $menu)) style="color:#007aff;"@endif>投票配置</dd>
@@ -32,7 +32,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('activityPollQuestionInfo', $ts_list)))
-                            <a href="{{ route('activityPollQuestionInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('activityPollQuestionInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('activityPollQuestionInfo', $menu)) style="color:#007aff;"@endif>问题配置</dd>

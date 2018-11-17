@@ -19,18 +19,13 @@ class InfoAction extends BaseInfoAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->_article = Article::find($id);
         }
-        if ($workNo == 1 || $workNo == 2) {
-            if ($workNo == 1) {
-                return $this->showInfo();
-            } else {
-                $this->process();
-            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -39,7 +34,7 @@ class InfoAction extends BaseInfoAction
             'record'            =>  $this->_article,
             'articleType'       =>  1,
             'menu'              =>  ['articleCenter', 'techingManage', 'articleTechingInfo'],
-            'actionUrl'         => route('articleTechingInfo', ['work_no'=>2]),
+            'actionUrl'         => route('articleTechingInfo'),
         ];
         return $this->createView('admin.article.teching.info', $result);
     }

@@ -16,7 +16,7 @@
                             </a>
                         @endif
                         @if(!empty($admin_info['is_manager'] || in_array('ownerInfo', $ts_list)))
-                            <a href="{{ route('ownerInfo', ['work_no'=>1]) }}">
+                            <a href="{{ route('ownerInfo') }}">
                                 <dl class="btn btn-lg btn-primary-outline">
                                     <dt><img src="/assets/images/manage.png"></dt>
                                     <dd @if(in_array('ownerInfo', $menu)) style="color:#007aff;"@endif>用户配置</dd>

@@ -25,18 +25,13 @@ class DetailAction extends BaseAction
     {
         $httpTool = $this->getHttpTool();
         $id = $httpTool->getBothSafeParam('id', HttpConfig::PARAM_NUMBER_TYPE);
-        $workNo = $httpTool->getBothSafeParam('work_no', HttpConfig::PARAM_NUMBER_TYPE);
         if (!empty($id)) {
             $this->_group = AdminUserGroup::find($id);
         }
-        if ($workNo == 1 || $workNo == 2) {
-            if ($workNo == 1) {
-                return $this->showInfo();
-            } else {
-                $this->process();
-            }
+        if ($httpTool->isAjax()) {
+            $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
@@ -45,7 +40,7 @@ class DetailAction extends BaseAction
             'record'        => $this->_group,
 //            'authorities'   => $this->getAuthorities(),
             'menu'  =>  ['manageCenter', 'groupManage', 'groupInfo'],
-            'actionUrl'     => route('groupInfo', ['work_no'=>2]),
+            'actionUrl'     => route('groupInfo'),
             'redirectUrl'   => route('groups'),
         ];
         return $this->createView('admin.system.group.detail', $result);
