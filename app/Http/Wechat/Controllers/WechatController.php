@@ -1,19 +1,19 @@
 <?php
 /**
- * 微信控制器
- * Date: 2018/11/16
- * Time: 23:22
+ * Wechat controller
+ * Date: 2018/11/5
+ * Time: 8:46
  */
 namespace App\Http\Wechat\Controllers;
 
-use Frameworks\Controller\Controller;
+use App\Http\Wechat\Actions\ServiceAction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 
 class WechatController extends Controller
 {
-    public function index(Request $request)
+
+    public function service(Request $request)
     {
-        $request->getClientIp();
+        return (new ServiceAction($request))->run();
     }
 }

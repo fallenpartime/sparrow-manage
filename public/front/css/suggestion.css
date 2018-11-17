@@ -1,0 +1,171 @@
+.container {
+    position: relative;
+    overflow: auto;
+}
+.main {
+	padding-left: 18px;
+	padding-right: 18px;
+}
+.main .sug-title {
+	margin: 15px 0 15px 0;
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 1;
+    border-left: 4px solid #ea6f5a;
+}
+.main .panel {
+	border-radius: 6px;
+    border: 1px solid #d5d5d5;
+}
+
+.main .panel .panel-title{
+    color: #333;
+	padding: 8px 15px;
+	font-size: 14px;
+	font-weight: 700;
+	background-color: #f5f5f5;
+	border-radius: 6px 6px 0 0;
+	border-bottom: solid 1px #ddd;
+}
+.main .panel .panel-body {
+	padding: 15px 15px 0 15px;
+}
+.panel-body .row {
+	margin-top: 15px;
+}
+.form-label {
+	display: block;
+	position: relative;
+	min-height: 1px;
+	margin: 3px 0 10px;
+	box-sizing: border-box;
+	text-align: left;
+	cursor: text;
+	font-size: 14px;
+	-webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+.row input,.row textarea{
+    padding: 10px;
+}
+.row .input-text {
+	font-size: 16px;
+	height: 36px;
+	box-sizing: border-box;
+    border: solid 1px #ddd;
+    width: 100%;
+    border-radius: 4px;
+}
+.row textarea {
+	height: 100px;
+    resize: none;
+    font-size: 14px;
+    padding: 4px;
+    box-sizing: border-box;
+    border: solid 1px #ddd;
+    width: 100%;
+    border-radius: 4px;
+}
+.panel-body .sub-btn {
+	margin: 15px auto;
+	display: block;
+	border: 1px solid #ea6f5a;
+	background-color: #ea6f5a;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+input textarea {
+	color: #333;
+}
+.alert {
+	padding: 10px 20px;
+	top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    position: fixed;
+    border-radius: 5px;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+/* vote */
+.vote-panel{
+    margin-bottom: 15px;
+}
+.vote-type{
+    padding: 10px 0;
+}
+.vote-type textarea{
+    display: block;
+    padding: 15px;
+    height: 150px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    line-height: 1.5
+}
+.vote-item{
+    display: block;
+    position: relative;
+    padding: 5px 15px 5px 48px;
+    color: #888
+}
+.vote-item input[type=radio],.vote-item input[type=checkbox]{
+    opacity: 0;
+    z-index: 3;
+}
+.vote-item input[type=radio],.vote-item input[type=checkbox],.vote-item span{
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    width: 25px;
+    height: 25px;
+}
+.vote-item input[type=text]{
+    display: none;
+    margin-top: 5px;
+    padding: 5px 15px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    font-size: 16px;
+}
+
+.vote-item:after{
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    width: 16px;
+    height: 16px;
+    content: '';
+    border: 1px solid #ea6f5a;
+    border-radius: 100%;
+    background: #eecbbd;
+}
+.vote-item input:checked + span{
+    z-index: 2;
+    left: 18px;
+    top: 12px;
+    background: #ea6f5a;
+    width: 12px;
+    height: 12px;
+}
+.sub-btn{
+    display: block;
+    margin: 20px auto 20px;
+    width: 120px;
+    height: 42px;
+    line-height: 42px;
+    background: #ea6f5a;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+
+}

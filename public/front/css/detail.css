@@ -1,0 +1,66 @@
+.main {
+    color: #333;
+	padding-left: 18px;
+	padding-right: 18px;
+}
+.main .note .title {
+	margin: 15px 0 10px;
+    font-size: 30px;
+    font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    line-height: 1.4;
+    color: #2f2f2f;
+}
+.main .article-info {
+	margin-bottom: 20px;
+    font-size: 13px;
+    color: #b1b1b1;
+}
+
+.main .article-info .meta {
+	margin-top: 10px;
+}
+.main .article-info .meta span {
+	margin-right: 10px;
+}
+.main .article-info .meta span:first-child {
+	color: #3d9c52;
+}
+.main .article-footer {
+	height: 52px;
+	padding-bottom: 15px;
+}
+.main .article-footer .operation .read-num {
+	float: left;
+}
+.main .article-footer .operation .like-num {
+	float: right;
+}
+.main .article-footer .operation .iconfont {
+	padding-right: 5px;
+	color: #ea6f5a;
+	vertical-align: middle;
+}
+.content p{
+    color: #545454;
+    line-height: 1.7;
+    margin-bottom: 5px;
+    text-indent: 2rem;
+}
+.content img{
+    display: block;
+    margin: 5px auto 8px;
+    width: 100%;
+}
+.main .vote{
+    overflow: hidden;
+}
+.main .vote .vote-btn {
+    float: right;
+    margin: 15px 0;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #ea6f5a;
+    border-radius: 4px;
+    display: inline-block;
+}

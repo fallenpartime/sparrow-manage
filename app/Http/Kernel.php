@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Admin\Middleware\AdminActionAuthMiddleware;
+use App\Http\Admin\Middleware\AdminLoginAuthMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -57,6 +59,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'admin.login.auth' => AdminLoginAuthMiddleware::class,
+        'admin.action.auth' => AdminActionAuthMiddleware::class,
         'wechat.oauth' => \Overtrue\LaravelWeChat\Middleware\OAuthAuthenticate::class,
     ];
 }

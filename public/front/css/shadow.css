@@ -1,0 +1,5 @@
+.list-shadow {
+    -moz-box-shadow:2px 2px 5px #d5d5d5;
+    -webkit-box-shadow:2px 2px 5px #d5d5d5;
+    box-shadow:2px 2px 5px #d5d5d5;
+}
