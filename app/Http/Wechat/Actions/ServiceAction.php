@@ -28,6 +28,7 @@ class ServiceAction extends BaseAction
             }
         });
         return $wechatTool->serve();
+
         exit();
         $app = app('wechat.official_account');
         $app->server->setMessageHandler(function($message) use ($app){
