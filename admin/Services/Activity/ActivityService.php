@@ -147,13 +147,15 @@ class ActivityService
             return !empty($record)? $record: [];
         }
         $record = $this->getCacheRecord($id);
-        if (empty($record)) {
+        if (!empty($record) && array_get($record, 'id')) {
+            if(array_get($record, 'is_show') == 0) {
+                return [];
+            }
+        } else {
             $record = Activity::find($id);
             if ($record && $record->is_show == 0) {
                 return [];
             }
-        } else if(array_get($record, 'is_show') == 0) {
-            return [];
         }
         return !empty($record)? $record: [];
     }
