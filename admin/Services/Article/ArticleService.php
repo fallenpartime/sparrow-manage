@@ -106,7 +106,10 @@ class ArticleService
         $result = Article::find($id)->increment('read_count');
         if ($result) {
             $cacheKeyword = $this->cacheKeyword($id);
-            $this->getRedis()->hincrby($cacheKeyword, 'read_count', 1);
+            $redis = $this->getRedis();
+            if ($redis->exists($cacheKeyword) && $redis->hexists($cacheKeyword, 'id')) {
+                $this->getRedis()->hincrby($cacheKeyword, 'read_count', 1);
+            }
         }
         return true;
     }
@@ -120,8 +123,15 @@ class ArticleService
         if ($id <= 0) {
             return false;
         }
-        $cacheKeyword = $this->cacheKeyword($id);
-        return $this->getRedis()->hincrby($cacheKeyword, 'like_count', 1);
+        $result = Article::find($id)->increment('like_count');
+        if ($result) {
+            $cacheKeyword = $this->cacheKeyword($id);
+            $redis = $this->getRedis();
+            if ($redis->exists($cacheKeyword) && $redis->hexists($cacheKeyword, 'id')) {
+                $redis->hincrby($cacheKeyword, 'like_count', 1);
+            }
+        }
+        return true;
     }
 
     public function getRecord($id = 0, $isPreview = false)
@@ -137,13 +147,15 @@ class ArticleService
             return !empty($record)? $record: [];
         }
         $record = $this->getCacheRecord($id);
-        if (empty($record)) {
+        if (!empty($record) && array_get($record, 'id')) {
+            if(array_get($record, 'is_show') == 0) {
+                return [];
+            }
+        } else {
             $record = Article::find($id);
             if ($record && $record->is_show == 0) {
                 return [];
             }
-        } else if(array_get($record, 'is_show') == 0) {
-            return [];
         }
         return !empty($record)? $record: [];
     }

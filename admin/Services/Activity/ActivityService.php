@@ -105,8 +105,11 @@ class ActivityService
         }
         $result = Activity::find($id)->increment('read_count');
         if ($result) {
-            $cacheKeyword = $this->cacheKeyword($id);
-            $this->getRedis()->hincrby($cacheKeyword, 'read_count', 1);
+            $cacheKeyword = $this->cacheKeyword($id);;
+            $redis = $this->getRedis();
+            if ($redis->exists($cacheKeyword) && $redis->hexists($cacheKeyword, 'id')) {
+                $this->getRedis()->hincrby($cacheKeyword, 'read_count', 1);
+            }
         }
         return true;
     }
@@ -120,8 +123,15 @@ class ActivityService
         if ($id <= 0) {
             return false;
         }
-        $cacheKeyword = $this->cacheKeyword($id);
-        return $this->getRedis()->hincrby($cacheKeyword, 'like_count', 1);
+        $result = Activity::find($id)->increment('like_count');
+        if ($result) {
+            $cacheKeyword = $this->cacheKeyword($id);;
+            $redis = $this->getRedis();
+            if ($redis->exists($cacheKeyword) && $redis->hexists($cacheKeyword, 'id')) {
+                $this->getRedis()->hincrby($cacheKeyword, 'like_count', 1);
+            }
+        }
+        return true;
     }
 
     public function getRecord($id = 0, $isPreview = false)

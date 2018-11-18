@@ -50,6 +50,11 @@ class RedisTool
         return $this->connect->hmset($key, $data);
     }
 
+    public function hexists($key, $column)
+    {
+        return $this->connect->hexists($key, $column);
+    }
+
     public function hincrby($key, $column, $disc)
     {
         return $this->connect->hincrby($key, $column, $disc);
@@ -58,5 +63,10 @@ class RedisTool
     public function set($key, $value)
     {
         return $this->connect->set($key, $value);
+    }
+
+    public function exists($key)
+    {
+        return $this->connect->exists($key);
     }
 }
