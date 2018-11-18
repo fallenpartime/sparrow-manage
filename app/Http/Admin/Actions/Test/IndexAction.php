@@ -19,7 +19,7 @@ class IndexAction extends BaseAction
 
     public function run()
     {
-        Redis::flushall();
+//        Redis::flushall();
 //        $this->init();
 //        $hashTool = new HashTool();
 //        $hash = $hashTool->encode(1,2);
