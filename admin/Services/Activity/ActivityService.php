@@ -158,6 +158,7 @@ class ActivityService
             }
         }
         return !empty($record)? $record: [];
+
     }
 
     /**
