@@ -25,7 +25,7 @@ class InfoAction extends BaseInfoAction
         if ($httpTool->isAjax()) {
             $this->process();
         }
-        $this->errorJson(500, '请求类型不匹配');
+        return $this->showInfo();
     }
 
     protected function showInfo()
