@@ -11,9 +11,16 @@ use Wechat\Tool\WechatTool;
 
 class ServiceAction extends BaseAction
 {
+    protected $token = 'sssssssss';
+
     public function run()
     {
         $wechatTool = new WechatTool();
+        if (isset($_GET['echostr'])) {
+            $wechatTool->setToken($this->token);
+            $wechatTool->valid();
+            exit();
+        }
         $app = $wechatTool->getApp();
         $wechatTool->setMessageHandler(function ($message) use ($app) {
             $userOpenId = $message->FromUserName;
