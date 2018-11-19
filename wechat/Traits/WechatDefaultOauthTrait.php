@@ -6,9 +6,12 @@
  */
 namespace Wechat\Traits;
 
+use Admin\Services\User\Integration\UserRegisterIntegration;
+use Carbon\Carbon;
 use Common\Models\User\User;
 use Admin\Services\User\Processor\UserProcessor;
 use Overtrue\Socialite\User as SocialiteUser;
+use Wechat\Tool\WechatTool;
 
 trait WechatDefaultOauthTrait
 {
@@ -27,7 +30,7 @@ trait WechatDefaultOauthTrait
         $httpTool = $this->getHttpTool();
         $user = $httpTool->getSession($sessionKey);
         $this->userId = $httpTool->getSession($sessionUserKey);
-        if (empty($user)) {
+        if (!empty($user)) {
 //            $user = new SocialiteUser([
 //                'id' => array_get($user, 'openid'),
 //                'name' => array_get($user, 'nickname'),
@@ -37,6 +40,7 @@ trait WechatDefaultOauthTrait
 //                'original' => [],
 //                'provider' => 'WeChat',
 //            ]);
+            // 测试
             $user = new SocialiteUser([
                 'id' => time(),
                 'name' => 'name_'.time(),
@@ -46,6 +50,7 @@ trait WechatDefaultOauthTrait
                 'original' => [],
                 'provider' => 'WeChat',
             ]);
+            // end测试
             $this->userId = $this->processWechatUser($user);
             if ($this->userId) {
                 $httpTool->setSession($sessionUserKey, $this->userId);
@@ -59,6 +64,7 @@ trait WechatDefaultOauthTrait
     {
         $user = User::where(['openid' => $wechatUser->id])->first();
         if (empty($user)) {
+            // 测试
             $data = [
                 'nick_name'         => array_get($wechatUser, 'nickname'),
                 'openid'            => array_get($wechatUser, 'id'),
@@ -70,8 +76,16 @@ trait WechatDefaultOauthTrait
                 return $user->id;
             }
             return 0;
+            // 正式
+//            $wechatTool = new WechatTool();
+//            $register = new UserRegisterIntegration($wechatTool->getUserInfo($wechatUser->id));
+//            list($status, $errMsg, $socialiteUser, $userId) = $register->process();
+//            if ($status) {
+//                return $userId;
+//            }
+//            return 0;
         } else {
-            $user->last_login_at = date('Y-m-d H:i:s');
+            $user->last_login_at = Carbon::now();
             $user->save();
             return $user->id;
         }

@@ -6,10 +6,11 @@
  */
 namespace Admin\Services\User\Processor;
 
+use Common\Models\User\UserInfo;
 use Frameworks\Services\Basic\Processor\BaseProcessor;
 
 class UserInfoProcessor extends BaseProcessor
 {
-    protected $tableName = '';
-    protected $tableClass = '';
+    protected $tableName = 'user_infos';
+    protected $tableClass = UserInfo::class;
 }

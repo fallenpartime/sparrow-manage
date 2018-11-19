@@ -13,4 +13,13 @@ class UserProcessor extends BaseProcessor
 {
     protected $tableName = 'users';
     protected $tableClass = User::class;
+
+    public function getSingleByOpenId($openId, $columns = [])
+    {
+        if (empty($openId)) {
+            return '';
+        }
+        $where = ['openid' => $openId];
+        return $this->getSingle($where, $columns);
+    }
 }

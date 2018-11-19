@@ -53,6 +53,13 @@ abstract class BaseProcessor
         return [$status, $id];
     }
 
+    public function updateWhere($condition, $data)
+    {
+        $tableClass = new $this->tableClass;
+        $status = $tableClass::where($condition)->update($data);
+        return $status;
+    }
+
     public function destroy($id)
     {
         $tableClass = new $this->tableClass;
