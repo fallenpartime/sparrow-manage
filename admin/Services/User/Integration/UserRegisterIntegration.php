@@ -57,7 +57,7 @@ class UserRegisterIntegration extends BaseWorkProcessor
             // 新增
             list($socialiteUser, $userId) = $this->insertUser();
         } else {
-            list($socialiteUser, $userId) = $socialiteUser = $this->updateUser();
+            list($socialiteUser, $userId) = $this->updateUser();
         }
         return [$socialiteUser, $userId];
     }
