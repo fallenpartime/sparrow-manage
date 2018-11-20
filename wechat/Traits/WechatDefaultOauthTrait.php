@@ -30,7 +30,8 @@ trait WechatDefaultOauthTrait
         $httpTool = $this->getHttpTool();
         $user = $httpTool->getSession($sessionKey);
         $this->userId = $httpTool->getSession($sessionUserKey);
-        if (empty($this->userId) && !empty($user)) {
+        if (empty($user)) {
+            // 测试
 //            $user = new SocialiteUser([
 //                'id' => array_get($user, 'openid'),
 //                'name' => array_get($user, 'nickname'),
@@ -51,6 +52,12 @@ trait WechatDefaultOauthTrait
                 'provider' => 'WeChat',
             ]);
             // end测试
+            $this->userId = $this->processWechatUser($user);
+            if ($this->userId) {
+                $httpTool->setSession($sessionUserKey, $this->userId);
+            }
+            $httpTool->setSession($sessionKey, $user);
+        } else if(empty($this->userId)) {
             $this->userId = $this->processWechatUser($user);
             if ($this->userId) {
                 $httpTool->setSession($sessionUserKey, $this->userId);

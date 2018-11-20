@@ -6,20 +6,26 @@
  */
 namespace App\Http\Wechat\Actions;
 
+use EasyWeChat\Kernel\Exceptions\BadRequestException;
 use Wechat\Action\BaseAction;
 use Wechat\Tool\WechatTool;
 
 class ServiceAction extends BaseAction
 {
-    protected $token = 'sssssssss';
-
     public function run()
     {
         $wechatTool = new WechatTool();
         if (isset($_GET['echostr'])) {
-            $wechatTool->setToken($this->token);
-            $wechatTool->valid();
-            exit();
+            try {
+                if ($wechatTool->valid()) {
+                    header('content-type:text');
+                    echo $_GET["echostr"];
+                }
+                exit();
+            } catch (BadRequestException $exception) {
+                echo $exception->getMessage();
+                exit();
+            }
         }
         $app = $wechatTool->getApp();
         $wechatTool->setMessageHandler(function ($message) use ($app) {
@@ -35,8 +41,6 @@ class ServiceAction extends BaseAction
             }
         });
         return $wechatTool->serve();
-
-        exit();
         $app = app('wechat.official_account');
         $app->server->setMessageHandler(function($message) use ($app){
             if ($message->MsgType=='event') {

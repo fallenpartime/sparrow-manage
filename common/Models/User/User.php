@@ -21,4 +21,9 @@ class User extends Model
     {
         return array_get($this->attributes, 'operate_list', []);
     }
+
+    public function userInfo()
+    {
+        return $this->hasOne(UserInfo::class, 'user_id');
+    }
 }

@@ -122,9 +122,15 @@ class UserRegisterIntegration extends BaseWorkProcessor
         $userInfoProcessor = new UserInfoProcessor();
         list($status, $userId) = $userProcessor->update($this->userModel->id, $data);
         if ($status) {
-            $userInfoProcessor->updateWhere(['user_id'=>$userId], $infoData);
+            if (isset($this->userModel->userInfo)) {
+                $this->userModel->userInfo->update($infoData);
+            } else {
+                $infoData['user_id'] = $this->userModel->id;
+                $userInfoProcessor->insert($infoData);
+            }
+//            $userInfoProcessor->updateWhere(['user_id'=>$userId], $infoData);
             return [$this->createSocialiteUser($this->userModel), $userId];
         }
-        return [null, 0];;
+        return [null, 0];
     }
 }
