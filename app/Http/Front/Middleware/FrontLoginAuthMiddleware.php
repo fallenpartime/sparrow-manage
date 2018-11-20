@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 前台登录验证
+ */
 namespace App\Http\Front\Middleware;
 
 use Closure;
