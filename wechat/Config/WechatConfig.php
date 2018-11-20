@@ -9,4 +9,5 @@ namespace Wechat\Config;
 class WechatConfig
 {
     const DEFAULT_OFFICIAL_ACCOUNT = 'wechat.official_account';
+    const DEFAULT_OFFICIAL_DEFAULT_USER = 'wechat.oauth_user.default';
 }

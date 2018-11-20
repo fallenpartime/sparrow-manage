@@ -16,8 +16,12 @@ Route::middleware(['web', 'wechat.oauth'])->group(function () {
 //    Route::any('/wechat/oauth/redirect', [
 //        'uses' => '\App\Http\Wechat\Controllers\Oauth\OauthController@redirectTo'
 //    ])->name('wechat.oauth.redirect');
-    // 后台授权登录
-//    Route::any('/wechat/oauth/admin', [
-//        'uses' => '\App\Http\Wechat\Controllers\Oauth\OauthController@admin'
-//    ])->name('wechat.oauth.admin');
+//     前台授权登录
+    Route::any('/wechat/oauth/front', [
+        'uses' => '\App\Http\Wechat\Controllers\Oauth\OauthController@front'
+    ])->name('wechat.oauth.front');
+//     后台授权登录
+    Route::any('/wechat/oauth/admin', [
+        'uses' => '\App\Http\Wechat\Controllers\Oauth\OauthController@admin'
+    ])->name('wechat.oauth.admin');
 });

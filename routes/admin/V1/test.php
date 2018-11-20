@@ -5,7 +5,7 @@
 //    'uses' => '\App\Http\Admin\Controllers\Test\TestController@index'
 //])->middleware('admin.login.auth', 'admin.action.auth');
 
-Route::middleware(['web'])->group(function () {
+Route::middleware(['web', 'wechat.oauth:default,snsapi_userinfo'])->group(function () {
     Route::get('/admin/test', [
         'as' => 'admintest',
         'uses' => '\App\Http\Admin\Controllers\Test\TestController@index'

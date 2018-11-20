@@ -9,11 +9,11 @@ namespace App\Http\Front\Actions\Interact\Admonition;
 use Admin\Services\User\Processor\UserAdmonitionProcessor;
 use Frameworks\Traits\ApiActionTrait;
 use Front\Action\BaseAction;
-use Wechat\Traits\WechatDefaultOauthTrait;
+use Front\Traits\LoginAuthTrait;
 
 class ConsultAction extends BaseAction
 {
-    use WechatDefaultOauthTrait, ApiActionTrait;
+    use LoginAuthTrait, ApiActionTrait;
 
     public function run()
     {

@@ -13,12 +13,12 @@ use Frameworks\Traits\ApiActionTrait;
 use Front\Action\BaseAction;
 use Front\Traits\ActivityActionTrait;
 use Front\Traits\ErrorActionTrait;
+use Front\Traits\LoginAuthTrait;
 use Illuminate\Support\Facades\Redis;
-use Wechat\Traits\WechatDefaultOauthTrait;
 
 class InfoAction extends BaseAction
 {
-    use ActivityActionTrait, ApiActionTrait, WechatDefaultOauthTrait, ErrorActionTrait;
+    use ActivityActionTrait, ApiActionTrait, LoginAuthTrait, ErrorActionTrait;
 
     protected $thankUrl = '';
     protected $voteKey = '';

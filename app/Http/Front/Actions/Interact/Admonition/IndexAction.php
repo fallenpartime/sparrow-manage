@@ -8,11 +8,11 @@ namespace App\Http\Front\Actions\Interact\Admonition;
 
 use Common\Models\User\UserAdmonition;
 use Front\Action\BaseAction;
-use Wechat\Traits\WechatDefaultOauthTrait;
+use Front\Traits\LoginAuthTrait;
 
 class IndexAction extends BaseAction
 {
-    use WechatDefaultOauthTrait;
+    use LoginAuthTrait;
 
     public function run()
     {

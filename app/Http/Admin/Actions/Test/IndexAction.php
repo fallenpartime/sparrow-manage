@@ -12,6 +12,7 @@ use Frameworks\Tool\Random\HashTool;
 use Illuminate\Support\Facades\Redis;
 use Vinkla\Hashids\Facades\Hashids;
 use Wechat\Traits\WechatDefaultOauthTrait;
+use Overtrue\Socialite\User as SocialiteUser;
 
 class IndexAction extends BaseAction
 {
@@ -19,6 +20,19 @@ class IndexAction extends BaseAction
 
     public function run()
     {
+        $sessionKey = 'wechat.oauth_user.default';
+        var_dump(session($sessionKey));
+
+//        $user = new SocialiteUser([
+//            'id' => time(),
+//            'name' => 'name_'.time(),
+//            'nickname' => 'nickname_'.time(),
+//            'avatar' => '/storage/20181105/bgnOSAvr0oozKHnvjs32aQNNsRTpOSqtsjUZsVse.jpeg',
+//            'email' => null,
+//            'original' => [],
+//            'provider' => 'WeChat',
+//        ]);
+
 //        Redis::flushall();
 //        $this->init();
 //        $hashTool = new HashTool();

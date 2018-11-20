@@ -7,9 +7,12 @@
 namespace App\Http\Wechat\Actions\Oauth;
 
 use Wechat\Action\BaseAction;
+use Wechat\Traits\WechatAdminOauthTrait;
 
 class AdminAction extends BaseAction
 {
+    use WechatAdminOauthTrait;
+
     public function run()
     {
         $httpTool = $this->getHttpTool();

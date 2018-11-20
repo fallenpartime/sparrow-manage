@@ -7,6 +7,7 @@
 namespace App\Http\Wechat\Controllers\Oauth;
 
 use App\Http\Wechat\Actions\Oauth\AdminAction;
+use App\Http\Wechat\Actions\Oauth\FrontAction;
 use App\Http\Wechat\Actions\Oauth\RedirectAction;
 use App\Http\Wechat\Actions\Oauth\ScanAction;
 use App\Http\Wechat\Controllers\Controller;
@@ -30,6 +31,15 @@ class OauthController extends Controller
     public function scan(Request $request)
     {
         return (new ScanAction($request))->run();
+    }
+
+    /**
+     * 前台验证
+     * @param Request $request
+     */
+    public function front(Request $request)
+    {
+        return (new FrontAction($request))->run();
     }
 
     /**

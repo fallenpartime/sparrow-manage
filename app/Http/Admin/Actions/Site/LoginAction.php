@@ -8,10 +8,12 @@ namespace App\Http\Admin\Actions\Site;
 
 use Admin\Action\BaseAction;
 use Admin\Services\Auth\AuthService;
+use Common\Config\SystemConfig;
 use Common\Models\System\AdminUserInfo;
 use Admin\Services\Authority\Integration\OwnerAuthoritiesIntegration;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Admin\Services\Authority\Processor\AdminUserRoleAccessProcessor;
+use Frameworks\Tool\Cache\RedisTool;
 
 class LoginAction extends BaseAction
 {
@@ -19,7 +21,21 @@ class LoginAction extends BaseAction
     {
         $authService = new AuthService($this->request);
         $authService->destroyLogin();
+        $adminDomain = SystemConfig::ADMIN_DOMAIN;
+        $currentDomain = url()->current();
+        if (str_contains($currentDomain, $adminDomain)) {
+            return $this->qrcodeLogin();
+        }
         return $this->pwdLogin();
+    }
+
+    protected function qrcodeLogin()
+    {
+        $siteDomain = SystemConfig::SITE_DOMAIN;
+        $token  = md5(time().rand(100,999));
+        $tokenKey = "edu:admin:login:{$token}";
+        $redisTool = new RedisTool();
+        $redisTool->hmset($tokenKey, ['token' => $token, 'site' => 'tys_admin', 'time' => time(), 'status' => 0], 3600);
     }
 
     protected function parseRoleAccess($roleId)
@@ -77,7 +93,8 @@ class LoginAction extends BaseAction
                 );
                 $httpTool->setSession('admin_info', $admin_info);
                 $httpTool->setSession('ts_list', $ts_list);
-                header("location: ".route('index'));
+                return redirect('index');
+//                header("location: ".route('index'));
             }
             return view('admin.site.loginpwd', ['result_msg'=>'用户不允许登录']);
         }

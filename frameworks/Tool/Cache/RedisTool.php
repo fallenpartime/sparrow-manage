@@ -45,9 +45,13 @@ class RedisTool
         return $this->connect->hgetall($key);
     }
 
-    public function hmset($key, $data)
+    public function hmset($key, $data, $timeout = 0)
     {
-        return $this->connect->hmset($key, $data);
+        $result = $this->connect->hmset($key, $data);
+        if ($result && $timeout > 0) {
+            $this->expire($key, $timeout);
+        }
+        return $result;
     }
 
     public function hexists($key, $column)
@@ -63,6 +67,16 @@ class RedisTool
     public function set($key, $value)
     {
         return $this->connect->set($key, $value);
+    }
+
+    public function setex($key, $value, $timeout)
+    {
+        return $this->connect->setex($key, $timeout, $value);
+    }
+
+    public function expire($key, $timeout)
+    {
+        return $this->connect->expire($key, $timeout);
     }
 
     public function exists($key)

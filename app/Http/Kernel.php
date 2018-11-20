@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Admin\Middleware\AdminActionAuthMiddleware;
 use App\Http\Admin\Middleware\AdminLoginAuthMiddleware;
+use App\Http\Front\Middleware\FrontLoginAuthMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -61,6 +62,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin.login.auth' => AdminLoginAuthMiddleware::class,
         'admin.action.auth' => AdminActionAuthMiddleware::class,
+        'front.login.auth' => FrontLoginAuthMiddleware::class,
         'wechat.oauth' => \Overtrue\LaravelWeChat\Middleware\OAuthAuthenticate::class,
     ];
 }
