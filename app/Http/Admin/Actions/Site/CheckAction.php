@@ -31,6 +31,9 @@ class CheckAction extends BaseAction
         if (empty($tokenData)) {
             $this->errorJson(500, '二维码已失效');
         }
+        if (!isset($tokenData['mobile']) || $tokenData['status'] == 0) {
+            $this->errorJson(500, '请重新登录');
+        }
         $phone = $tokenData['phone'];
         $adminUser = AdminUser::where(['phone'=>$phone])->first();
         if (empty($adminUser)) {
