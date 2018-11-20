@@ -20,8 +20,9 @@ class IndexAction extends BaseAction
 
     public function run()
     {
-        $sessionKey = 'wechat.oauth_user.default';
-        var_dump(session($sessionKey));
+        dd($this->request->getUri());
+//        $sessionKey = 'wechat.oauth_user.default';
+//        var_dump(session($sessionKey));
 
 //        $user = new SocialiteUser([
 //            'id' => time(),
