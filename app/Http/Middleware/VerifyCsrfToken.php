@@ -14,6 +14,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'admin/upload',
+        'admin/check',
         'wechat',
+        'wechat/oauth/front',
+        'wechat/oauth/admin',
     ];
 }

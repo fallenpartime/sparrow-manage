@@ -11,6 +11,8 @@ use Common\Models\Article\Article;
 use Frameworks\Tool\Random\HashTool;
 use Illuminate\Support\Facades\Redis;
 use Vinkla\Hashids\Facades\Hashids;
+use Wechat\Config\WechatConfig;
+use Wechat\Tool\WechatTool;
 use Wechat\Traits\WechatDefaultOauthTrait;
 use Overtrue\Socialite\User as SocialiteUser;
 
@@ -20,6 +22,8 @@ class IndexAction extends BaseAction
 
     public function run()
     {
+        $tool = new WechatTool();
+        dd($tool->getApp()->config->app_id);
         dd($this->request->getUri());
 //        $sessionKey = 'wechat.oauth_user.default';
 //        var_dump(session($sessionKey));

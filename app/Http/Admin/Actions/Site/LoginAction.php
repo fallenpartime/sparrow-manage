@@ -14,6 +14,7 @@ use Admin\Services\Authority\Integration\OwnerAuthoritiesIntegration;
 use Admin\Services\Authority\Processor\AdminUserProcessor;
 use Admin\Services\Authority\Processor\AdminUserRoleAccessProcessor;
 use Frameworks\Tool\Cache\RedisTool;
+use Wechat\Tool\WechatTool;
 
 class LoginAction extends BaseAction
 {
@@ -31,11 +32,25 @@ class LoginAction extends BaseAction
 
     protected function qrcodeLogin()
     {
+        $adminDomain = SystemConfig::ADMIN_DOMAIN;
         $siteDomain = SystemConfig::SITE_DOMAIN;
         $token  = md5(time().rand(100,999));
         $tokenKey = "edu:admin:login:{$token}";
         $redisTool = new RedisTool();
-        $redisTool->hmset($tokenKey, ['token' => $token, 'site' => 'tys_admin', 'time' => time(), 'status' => 0], 3600);
+        $redisTool->hmset($tokenKey, ['token' => $token, 'site' => 'edu_admin', 'time' => time(), 'status' => 0], 3600);
+        $wechatTool = new WechatTool();
+        $wechatConfig = $wechatTool->getApp()->config;
+        $redirectUrl = urlencode($siteDomain."/wechat/oauth/admin?token={$token}");
+        $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$wechatConfig->app_id
+            ."&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_userinfo"
+            ."&state={$token}#wechat_redirect";
+        $check_url  = $adminDomain.'/admin/check?token='.$token;
+        $result = [
+            'token'     =>  $token,
+            'code_url'  =>  $code_url,
+            'check_url' =>  $check_url,
+        ];
+        return view('admin.site.scan', $result);
     }
 
     protected function parseRoleAccess($roleId)

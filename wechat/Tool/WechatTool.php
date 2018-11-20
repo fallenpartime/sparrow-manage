@@ -23,6 +23,11 @@ class WechatTool
         return $this->wechatApp;
     }
 
+    public function getConfig()
+    {
+        return $this->wechatApp->conifg;
+    }
+
     public function getUserInfo($openId)
     {
         return $this->wechatApp->user->get($openId);

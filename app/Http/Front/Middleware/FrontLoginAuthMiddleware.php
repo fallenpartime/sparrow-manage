@@ -21,7 +21,7 @@ class FrontLoginAuthMiddleware
         $sessionKey = SessionConfig::FRONT_USER_ID;
         $userId = session($sessionKey);
         if (empty($userId)) {
-            $redirectUrl = $request->getUri();
+            $redirectUrl = $request->fullUrl();
             session(SessionConfig::FRONT_OAUTH_REDIRECT_URL, $redirectUrl);
             return redirect('wechat.oauth.front');
         }
