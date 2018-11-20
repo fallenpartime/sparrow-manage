@@ -47,7 +47,7 @@ class WechatTool
 
     public function serve()
     {
-        $this->wechatApp->server->serve();
+        return $this->wechatApp->server->serve();
     }
 
     public function valid()
