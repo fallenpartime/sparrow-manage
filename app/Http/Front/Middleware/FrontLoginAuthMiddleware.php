@@ -25,6 +25,7 @@ class FrontLoginAuthMiddleware
         if (empty($userId)) {
             // TODO: 测试环境
             $this->wechatUser();
+
             // TODO: 正式
 //            $redirectUrl = $request->fullUrl();
 //            session(SessionConfig::FRONT_OAUTH_REDIRECT_URL, $redirectUrl);
