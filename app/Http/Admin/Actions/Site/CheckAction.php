@@ -50,10 +50,11 @@ class CheckAction extends BaseAction
             $roleId = $owner->role_id;
             $isManger = $roleId == 1? 1: 0;
             $isSuper = $owner->is_super;
-            $ts_list = [];
-            if ($roleId > 0) {
-                list($stauts, $message, $ts_list) = (new OwnerAuthoritiesIntegration($owner))->process();
+            if ($roleId <= 0) {
+                $this->errorJson(500, '未配置角色');
             }
+            list($stauts, $message, $ts_list) = (new OwnerAuthoritiesIntegration($owner))->process();
+            $ts_list = !empty($ts_list)? $ts_list: [];
             $groupList = $this->parseRoleAccess($roleId);
             $admin_info = array(
                 'userid' 	=> $adminUser->id,
