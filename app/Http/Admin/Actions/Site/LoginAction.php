@@ -46,6 +46,7 @@ class LoginAction extends BaseAction
 //            ."&state={$token}#wechat_redirect";
         $code_url = $siteDomain."/wechat/oauth/admin?token={$token}";
         $check_url  = $adminDomain.'/admin/check?token='.$token;
+
         $result = [
             'token'     =>  $token,
             'code_url'  =>  $code_url,
