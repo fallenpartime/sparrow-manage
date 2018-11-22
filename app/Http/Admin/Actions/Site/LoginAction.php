@@ -38,12 +38,13 @@ class LoginAction extends BaseAction
         $tokenKey = "edu:admin:login:{$token}";
         $redisTool = new RedisTool();
         $redisTool->hmset($tokenKey, ['token' => $token, 'site' => 'edu_admin', 'time' => time(), 'status' => 0], 3600);
-        $wechatTool = new WechatTool();
-        $wechatConfig = $wechatTool->getApp()->config;
-        $redirectUrl = urlencode($siteDomain."/wechat/oauth/admin?token={$token}");
-        $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$wechatConfig->app_id
-            ."&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_userinfo"
-            ."&state={$token}#wechat_redirect";
+//        $wechatTool = new WechatTool();
+//        $wechatConfig = $wechatTool->getApp()->config;
+//        $redirectUrl = urlencode($siteDomain."/wechat/oauth/admin?token={$token}");
+//        $code_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$wechatConfig->app_id
+//            ."&redirect_uri={$redirectUrl}&response_type=code&scope=snsapi_userinfo"
+//            ."&state={$token}#wechat_redirect";
+        $code_url = $siteDomain."/wechat/oauth/admin?token={$token}";
         $check_url  = $adminDomain.'/admin/check?token='.$token;
         $result = [
             'token'     =>  $token,

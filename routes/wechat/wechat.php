@@ -7,7 +7,7 @@ Route::middleware(['web'])->group(function () {
     ])->name('wechat.service');
 });
 
-Route::middleware(['web', 'wechat.oauth'])->group(function () {
+Route::middleware(['web', 'wechat.oauth:snsapi_userinfo'])->group(function () {
     // 扫码验证
 //    Route::match(['get', 'post'], '/wechat/oauth/scan', [
 //        'uses' => '\App\Http\Wechat\Controllers\Oauth\OauthController@scan'
