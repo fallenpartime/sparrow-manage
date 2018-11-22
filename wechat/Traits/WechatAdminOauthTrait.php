@@ -38,15 +38,15 @@ trait WechatAdminOauthTrait
 //                'original' => [],
 //                'provider' => 'WeChat',
 //            ]);
-            $user = new SocialiteUser([
-                'id' => time(),
-                'name' => 'name_'.time(),
-                'nickname' => 'nickname_'.time(),
-                'avatar' => '/storage/20181105/bgnOSAvr0oozKHnvjs32aQNNsRTpOSqtsjUZsVse.jpeg',
-                'email' => null,
-                'original' => [],
-                'provider' => 'WeChat',
-            ]);
+//            $user = new SocialiteUser([
+//                'id' => time(),
+//                'name' => 'name_'.time(),
+//                'nickname' => 'nickname_'.time(),
+//                'avatar' => '/storage/20181105/bgnOSAvr0oozKHnvjs32aQNNsRTpOSqtsjUZsVse.jpeg',
+//                'email' => null,
+//                'original' => [],
+//                'provider' => 'WeChat',
+//            ]);
         }
         $this->userId = $this->processWechatUser($user);
         return $user;
