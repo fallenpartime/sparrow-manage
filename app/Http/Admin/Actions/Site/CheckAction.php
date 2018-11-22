@@ -35,6 +35,9 @@ class CheckAction extends BaseAction
             $this->errorJson(500, '请重新登录');
         }
         $phone = $tokenData['phone'];
+        if (empty($phone)) {
+            $this->errorJson(500, '未绑定电话');
+        }
         $adminUser = AdminUser::where(['phone'=>$phone])->first();
         if (empty($adminUser)) {
             $this->errorJson(500, '后台用户不存在');
@@ -62,8 +65,9 @@ class CheckAction extends BaseAction
             );
             $httpTool->setSession('admin_info', $admin_info);
             $httpTool->setSession('ts_list', $ts_list);
-            return redirect('index');
+            $this->successJson('', ['url'=>route('index')]);
         }
+        $this->errorJson(500, '后台用户不允许登录');
     }
 
     protected function parseRoleAccess($roleId)
