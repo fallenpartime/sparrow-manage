@@ -3,7 +3,7 @@
 Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/front/activity/vote', [
         'uses' => '\App\Http\Front\Controllers\Activity\VoteController@info'
-    ])->name('front.activity.vote');
+    ])->middleware('front.login.auth')->name('front.activity.vote');
     Route::match(['get', 'post'], '/front/activity/feedback', [
         'uses' => '\App\Http\Front\Controllers\Activity\VoteController@feedback'
     ])->name('front.activity.feedback');
@@ -21,5 +21,5 @@ Route::middleware(['web'])->group(function () {
     ])->name('front.polls');
     Route::get('/front/activity/poll/{code}', [
         'uses' => '\App\Http\Front\Controllers\Activity\PollController@info'
-    ])->name('front.poll.info');
+    ])->middleware('front.login.auth')->name('front.poll.info');
 });
