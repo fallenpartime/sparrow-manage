@@ -47,6 +47,8 @@ class FrontLoginAuthMiddleware
         ]);
         $userId = $this->processWechatUser($user);
         if ($userId) {
+            var_dump(SessionConfig::FRONT_USER_ID);
+            var_dump(SessionConfig::FRONT_USER_INFO);
             session(SessionConfig::FRONT_USER_ID, $userId);
             session(SessionConfig::FRONT_USER_INFO, $user);
             var_dump(session(SessionConfig::FRONT_USER_ID));
