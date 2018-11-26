@@ -46,7 +46,6 @@ class FrontLoginAuthMiddleware
             'provider' => 'WeChat',
         ]);
         $userId = $this->processWechatUser($user);
-        dd($userId);
         if ($userId) {
             session(SessionConfig::FRONT_USER_ID, $userId);
             session(SessionConfig::FRONT_USER_INFO, $user);
