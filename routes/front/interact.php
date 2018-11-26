@@ -1,12 +1,15 @@
 <?php
-// 师生互动
-Route::middleware(['web'])->group(function () {
+
+Route::middleware(['web', 'front.login.auth'])->group(function () {
     Route::get('/front/interact/admonitions', [
         'uses' => '\App\Http\Front\Controllers\Interact\AdmonitionController@index'
-    ])->middleware('front.login.auth')->name('front.admonitions');
+    ])->name('front.admonitions');
     Route::match(['get', 'post'], '/front/interact/admonition/consult', [
         'uses' => '\App\Http\Front\Controllers\Interact\AdmonitionController@consult'
-    ])->middleware('front.login.auth')->name('front.admonition.consult');
+    ])->name('front.admonition.consult');
+});
+// 师生互动
+Route::middleware(['web'])->group(function () {
     Route::get('/front/interact/admonition/feedback', [
         'uses' => '\App\Http\Front\Controllers\Interact\AdmonitionController@feedback'
     ])->name('front.admonition.feedback');
