@@ -35,7 +35,7 @@ class IndexAction extends BaseAction
             $schools = School::where('name', 'like', "%{$keyword}%")->where('is_show', 1)->select(['name', 'address', 'telent', 'property'])->get();
             foreach ($schools as $item) {
                 $district = $item->district;
-                list($lng, $lat) = MapTool::getAddressPosition($item->address);
+                list($lng, $lat) = MapTool::getAddressPosition($item->address, $this->request);
                 $districtName = '';
                 if (!empty($district)) {
                     $districtName = $district->name;

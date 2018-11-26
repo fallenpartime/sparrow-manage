@@ -15,14 +15,15 @@ class MapTool
      * @param $address
      * @return array
      */
-    public static function getAddressPosition($address)
+    public static function getAddressPosition($address, $request)
     {
         $emptyPosition = [0, 0];
         if (empty($address)) {
             return $emptyPosition;
         }
         $url = MapConfig::getPositionUrl($address);
-        $result = CurlTool::httpGet($url);
+        $curlTool = new CurlTool($request);
+        $result = $curlTool->curl($url);
         if (empty($result)) {
             return $emptyPosition;
         }
