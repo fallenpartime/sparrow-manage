@@ -27,6 +27,7 @@ class IndexAction extends BaseAction
         $this->getJsonTool()->customJson(['code'=>$code, 'result'=>$list]);
     }
 
+
     protected function getList($keyword)
     {
         $keyword = trim($keyword);
