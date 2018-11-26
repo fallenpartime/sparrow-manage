@@ -17,7 +17,5 @@ trait LoginAuthTrait
     {
         $this->wechatUser = session(SessionConfig::FRONT_USER_INFO);
         $this->userId = session(SessionConfig::FRONT_USER_ID);
-        var_dump($this->wechatUser);
-        var_dump($this->userId);
     }
 }

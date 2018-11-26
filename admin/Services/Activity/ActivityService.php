@@ -77,7 +77,7 @@ class ActivityService
             return false;
         }
         $cacheKeyword = $this->cacheKeyword($id);
-        return $this->getCacheRecord()->hmset($cacheKeyword, $data);
+        return $this->getRedis()->hmset($cacheKeyword, $data);
     }
 
     /**

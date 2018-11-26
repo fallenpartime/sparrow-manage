@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Redis;
 
 class InfoAction extends BaseAction
 {
-    use ActivityActionTrait, ErrorActionTrait, LoginAuthTrait;
+    use LoginAuthTrait, ActivityActionTrait, ErrorActionTrait;
 
     protected $type = 1;
     protected $voteKey = '';

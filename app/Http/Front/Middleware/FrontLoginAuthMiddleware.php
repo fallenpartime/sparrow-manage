@@ -7,10 +7,12 @@ namespace App\Http\Front\Middleware;
 use Admin\Services\User\Processor\UserProcessor;
 use Closure;
 use Common\Config\SessionConfig;
+use Frameworks\Tool\Http\SessionTool;
 use Overtrue\Socialite\User as SocialiteUser;
 
 class FrontLoginAuthMiddleware
 {
+    protected $sessionTool = null;
     /**
      * Handle an incoming request.
      *
@@ -20,8 +22,9 @@ class FrontLoginAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $this->sessionTool = new SessionTool($request);
         $sessionKey = SessionConfig::FRONT_USER_ID;
-        $userId = session($sessionKey);
+        $userId = $this->sessionTool->get($sessionKey);
         if (empty($userId)) {
             // TODO: 测试环境
             $this->wechatUser();
@@ -47,12 +50,8 @@ class FrontLoginAuthMiddleware
         ]);
         $userId = $this->processWechatUser($user);
         if ($userId) {
-            var_dump(SessionConfig::FRONT_USER_ID);
-            var_dump(SessionConfig::FRONT_USER_INFO);
-            session(SessionConfig::FRONT_USER_ID, $userId);
-            session(SessionConfig::FRONT_USER_INFO, $user);
-            var_dump(session(SessionConfig::FRONT_USER_ID));
-            var_dump(session(SessionConfig::FRONT_USER_INFO));
+            $this->sessionTool->set(SessionConfig::FRONT_USER_ID, $userId);
+            $this->sessionTool->set(SessionConfig::FRONT_USER_INFO, $user);
         }
         return $user;
     }

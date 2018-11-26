@@ -110,8 +110,8 @@ class LoginAction extends BaseAction
                 );
                 $httpTool->setSession('admin_info', $admin_info);
                 $httpTool->setSession('ts_list', $ts_list);
-                return redirect('index');
-//                header("location: ".route('index'));
+//                return redirect('index');
+                header("location: ".route('index'));
             }
             return view('admin.site.loginpwd', ['result_msg'=>'用户不允许登录']);
         }
