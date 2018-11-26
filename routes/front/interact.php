@@ -1,5 +1,4 @@
 <?php
-
 Route::middleware(['web', 'front.login.auth'])->group(function () {
     Route::get('/front/interact/admonitions', [
         'uses' => '\App\Http\Front\Controllers\Interact\AdmonitionController@index'

@@ -49,6 +49,8 @@ class FrontLoginAuthMiddleware
         if ($userId) {
             session(SessionConfig::FRONT_USER_ID, $userId);
             session(SessionConfig::FRONT_USER_INFO, $user);
+            var_dump(session(SessionConfig::FRONT_USER_ID));
+            var_dump(session(SessionConfig::FRONT_USER_INFO));
         }
         return $user;
     }
