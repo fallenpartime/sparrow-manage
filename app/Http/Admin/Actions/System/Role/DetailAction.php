@@ -128,7 +128,7 @@ class DetailAction extends BaseAction
             'actions'   =>  !empty($actions)? json_encode($actions): null,
         ];
         list($res, $id) = empty($id)? $this->store($data): $this->update($data);
-        $this->storeAccess($id);
+        $this->storeAccess($roleNo);
         $this->successJson();
     }
 
